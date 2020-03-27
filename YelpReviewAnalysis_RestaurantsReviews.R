@@ -17,20 +17,20 @@ filedir
 
 
 #
-#
+#ONLY use USA files!
 #Run this script for input files....
 #inputfile = "yelp_restaurants.csv"
-inputfile = "yelp_restaurants_usa.csv"
+#inputfile = "yelp_restaurants_usa.csv"
 #inputfile = "yelp_restaurants_canada.csv"
 #
 #And for corresponding output files...
 #outputfile = "yelp_restaurants_reviews.csv"
-outputfile = "yelp_restaurants_usa_reviews.csv"
+#outputfile = "yelp_restaurants_usa_reviews.csv"
 #outputfile = "yelp_restaurants_canada_reviews.csv"
 #
 
 #
-restaurantsdatafile = paste(filedir, inputfile, sep="")
+restaurantsdatafile = paste(filedir, "yelp_restaurants_usa.csv", sep="")
 df_restaurants <- read.csv(restaurantsdatafile, 
                            sep=',',
                            stringsAsFactors=F,
@@ -130,7 +130,7 @@ nrow(df_reviews)
 
 
 
-restaurantsreviewsdatafile = paste(filedir, outputfile, sep="")
+restaurantsreviewsdatafile = paste(filedir, "yelp_restaurants_usa_reviews.csv", sep="")
 write.csv(df_reviews[ which(df_reviews$business_id %in% df_restaurants$business_id), ], 
           file = restaurantsreviewsdatafile, 
           row.names=F, 
